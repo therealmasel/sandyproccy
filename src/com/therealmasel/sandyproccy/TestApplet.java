@@ -1,3 +1,5 @@
+package com.therealmasel.sandyproccy;
+
 import processing.core.PApplet;
 
 
@@ -12,6 +14,7 @@ public class TestApplet extends PApplet{
 	
 	
 	public void setup(){
+		size(200,200,OPENGL);
 		Scene myScene1 = new MyScene1();
 		Scene myScene2 = new MyScene2();
 		sceneController.addScene(myScene1);

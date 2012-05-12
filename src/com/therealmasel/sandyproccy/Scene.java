@@ -1,4 +1,4 @@
-
+package com.therealmasel.sandyproccy;
 public abstract class Scene {
 
 	public abstract void drawScene();
