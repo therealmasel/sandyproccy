@@ -12,41 +12,50 @@ public class GameMapAppletTest extends PApplet {
 	private GameMap gameMap;
 	
 	public void setup() {
-		size(300, 300, OPENGL);
-		colorMode(RGB, 200);
+		size(300, 300, P3D);
+		//colorMode(RGB, 200);
 		//buffer type is P3D cause we want to use it for object picking
 		buffer = createGraphics(300, 300, P3D);
-		this.gameMap = new GameMap(10, 10, 20, 20);
+		this.gameMap = new GameMap(10, 10, 17, 17);
 	}
 	
 	public void mouseClicked() {
+		
+		
 		buffer.beginDraw();
 		//buffer.lights();
+
 		
-		buffer.camera(70, 70, 220.0f, 
+		buffer.camera(10, 10, 220.0f, 
 		         70, 70, 0.0f, 
 		         1.0f, 0.0f, 0.0f);
 		buffer.background(-1);
 		buffer.noStroke();
 		buffer.rotateX(PI/6);
 		  
-		  buffer.noStroke();
 			gameMap.drawMapBuffer(buffer);
 			buffer.endDraw();
+		//this.g.endDraw();
 			int pick = buffer.get(mouseX, mouseY);
-			int fieldWIndex = (pick / 10);
-			int fieldHIndex = pick - fieldWIndex;
+			int red = (int) red(pick);
+			int green = (int) green(pick);
+			int blue = (int) blue(pick);
+			//int fieldWIndex = (pick / 10);
+			//int fieldHIndex = pick - fieldWIndex;
+			PApplet.println("red is" + red);
+			PApplet.println("green is" + green);
+			PApplet.println("blue is" + blue);
 			PApplet.println("pick is" + pick);
-			PApplet.println("Windex" + fieldWIndex);
-			PApplet.println("Hindex" + fieldHIndex);
+			//PApplet.println("Windex" + fieldWIndex);
+			//PApplet.println("Hindex" + fieldHIndex);
 		
 		//println(id);
 		
 	}
 	
 	public void draw() {
-		  lights();
-    	  camera(70, 70, 220.0f, 
+		  g.lights();
+    	  g.camera(10, 10, 220.0f, 
 		         70, 70, 0.0f, 
 		         1.0f, 0.0f, 0.0f);
     	  /*
@@ -61,8 +70,8 @@ public class GameMapAppletTest extends PApplet {
     	  */
 		  g.background(-1);
 		  g.noStroke();
-		  rotateX(PI/6);
-		  gameMap.drawMapBuffer(this.g);
+		  g.rotateX(PI/6);
+		  gameMap.drawMap(this.g);
 		  g.stroke(255);
 		  g.line(-100, 0, 0, 100, 0, 0);
 		  g.line(0, -100, 0, 0, 100, 0);

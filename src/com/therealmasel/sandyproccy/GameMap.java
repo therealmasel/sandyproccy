@@ -41,7 +41,6 @@ public class GameMap {
 			for (int j = 0; j < fieldsByHeight; j++) {
 				canvas.pushMatrix();
 				canvas.translate(i*fieldWidth,j*fieldHeight,0);
-				//canvas.rotateY(PI/2);
 				gameMap[i][j].draw(canvas);
 				canvas.popMatrix();
 			}
