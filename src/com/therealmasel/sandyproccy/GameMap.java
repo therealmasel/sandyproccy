@@ -12,6 +12,7 @@ public class GameMap {
 	private int fieldsByHeight;
 	private int fieldWidth;
 	private int fieldHeight;
+	private int selectedFieldIndex;
 	
 	private GameMapObject[] gameMapObjects;
 	
@@ -33,6 +34,18 @@ public class GameMap {
 				PApplet.println(i*fieldsByWidth + j);
 			}
 		}
+	}
+	
+	public GameMapField getField(int fieldId) {
+		int fieldWIndex = (fieldId / fieldsByWidth);
+		int fieldHIndex = fieldId - fieldWIndex * fieldsByWidth ;
+		if ((fieldWIndex < fieldsByWidth)  && (fieldHIndex <= fieldsByHeight)) {
+			return gameMap[fieldWIndex][fieldHIndex];
+		} 
+		
+		return null;
+		
+		
 	}
 	
 	public void drawMap(PGraphics canvas) {
@@ -83,6 +96,18 @@ public class GameMap {
 		}
 		*/
 		return null;
+	}
+
+	public void setFieldSelected(int fieldId) {
+		
+		GameMapField field = getField(fieldId);
+		if (field != null) {
+			GameMapField selectedField = getField(selectedFieldIndex);
+			selectedField.setSelected(false);
+			selectedFieldIndex = fieldId;
+			field.setSelected(true);
+			
+		}
 	}
 	
 }

@@ -16,7 +16,7 @@ public class GameMapAppletTest extends PApplet {
 		//colorMode(RGB, 200);
 		//buffer type is P3D cause we want to use it for object picking
 		buffer = createGraphics(300, 300, P3D);
-		this.gameMap = new GameMap(20, 20, 17, 17);
+		this.gameMap = new GameMap(15, 15, 17, 17);
 	}
 	
 	public void mouseMoved() {
@@ -37,14 +37,18 @@ public class GameMapAppletTest extends PApplet {
 			buffer.endDraw();
 		//this.g.endDraw();
 			int pick = buffer.get(mouseX, mouseY);
+			//we`re getting the field id
 			int blue = (int) blue(pick);
-			int fieldWIndex = (blue / 20);
-			int fieldHIndex = blue- fieldWIndex * 20 ;
+			//GameMapField field = gameMap.getField(blue);
+			gameMap.setFieldSelected(blue);
 			
+			/*int fieldWIndex = (blue / 20);
+			int fieldHIndex = blue- fieldWIndex * 20 ;*/
+						
 			PApplet.println("blue is" + blue);
 			//PApplet.println("pick is" + pick);
-			PApplet.println("Windex" + fieldWIndex);
-			PApplet.println("Hindex" + fieldHIndex);
+			//PApplet.println("Windex" + fieldWIndex);
+			//PApplet.println("Hindex" + fieldHIndex);
 		
 		//println(id);
 		
