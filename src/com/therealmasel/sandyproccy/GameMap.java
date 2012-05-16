@@ -1,5 +1,6 @@
 package com.therealmasel.sandyproccy;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import processing.core.PApplet;
@@ -12,7 +13,7 @@ public class GameMap {
 	private int fieldsByHeight;
 	private int fieldWidth;
 	private int fieldHeight;
-	private int selectedFieldIndex;
+	private ArrayList<GameMapField> selectedFields = new ArrayList<GameMapField>();
 	
 	private GameMapObject[] gameMapObjects;
 	
@@ -97,16 +98,21 @@ public class GameMap {
 		*/
 		return null;
 	}
+	
+	public void clearFieldSelection() {
+		for (GameMapField selectedField : selectedFields) {
+			selectedField.setSelected(false);
+		}
+		selectedFields.clear();
+	}
 
 	public void setFieldSelected(int fieldId) {
 		
 		GameMapField field = getField(fieldId);
 		if (field != null) {
-			GameMapField selectedField = getField(selectedFieldIndex);
-			selectedField.setSelected(false);
-			selectedFieldIndex = fieldId;
 			field.setSelected(true);
-			
+			selectedFields.add(field);
+		
 		}
 	}
 	

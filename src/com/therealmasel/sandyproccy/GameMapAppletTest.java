@@ -18,6 +18,9 @@ public class GameMapAppletTest extends PApplet {
 		buffer = createGraphics(300, 300, P3D);
 		this.gameMap = new GameMap(15, 15, 17, 17);
 	}
+	public void mousePressed() {
+		
+	}
 	
 	public void mouseMoved() {
 		
@@ -40,6 +43,7 @@ public class GameMapAppletTest extends PApplet {
 			//we`re getting the field id
 			int blue = (int) blue(pick);
 			//GameMapField field = gameMap.getField(blue);
+			//gameMap.clearFieldSelection();
 			gameMap.setFieldSelected(blue);
 			
 			/*int fieldWIndex = (blue / 20);
