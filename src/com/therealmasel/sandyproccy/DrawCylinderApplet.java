@@ -49,7 +49,7 @@ public class DrawCylinderApplet extends PApplet {
 		  g.line(-100, 0, 0, 100, 0, 0);
 		  g.line(0, -100, 0, 0, 100, 0);
 		  g.line(0, 0, -100, 0, 0, 100);
-		  println(frameRate);
+		  //println(frameRate);
 	}
 	
 	public void mouseClicked() {

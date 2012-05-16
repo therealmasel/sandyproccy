@@ -1,5 +1,8 @@
 package com.therealmasel.sandyproccy;
 
+import java.util.HashMap;
+
+import processing.core.PApplet;
 import processing.core.PGraphics;
 
 public class GameMap {
@@ -26,7 +29,8 @@ public class GameMap {
 		
 		for (int i = 0; i < fieldsByWidth; i++) {
 			for (int j = 0; j < fieldsByHeight; j++) {
-				gameMap[i][j] = new GameMapField(fieldWidth, fieldHeight, i*fieldsByWidth + j); 
+				gameMap[i][j] = new GameMapField(fieldWidth, fieldHeight, i*fieldsByWidth + j);
+				PApplet.println(i*fieldsByWidth + j);
 			}
 		}
 	}
@@ -53,9 +57,33 @@ public class GameMap {
 	public void drawMapBuffer(PGraphics buffer) {
 		for (int i = 0; i < fieldsByWidth; i++) {
 			for (int j = 0; j < fieldsByHeight; j++) {
-				gameMap[i][j].draw(buffer); 
+				buffer.pushMatrix();
+				buffer.translate(i*fieldWidth,j*fieldHeight,0);
+				//canvas.rotateY(PI/2);
+				gameMap[i][j].drawBuffer(buffer);
+				buffer.popMatrix();
 			}
 		}
+	}
+
+	public GameMapField findField(PGraphics buffer, int mouseX, int mouseY) {
+		buffer.noStroke();
+		this.drawMapBuffer(buffer);
+		buffer.endDraw();
+		int pick = buffer.get(mouseX, mouseY) ;
+		int fieldWIndex = (pick % fieldsByWidth);
+		int fieldHIndex = pick - fieldWIndex;
+		PApplet.println("pick is" + pick);
+		PApplet.println("Windex" + fieldWIndex);
+		PApplet.println("Hindex" + fieldHIndex);
+		/*
+		if (fieldWIndex <= fieldsByWidth) && (fieldHIndex <= fieldsByHeight) { 
+		return gameMap[fieldWIndex][fieldHIndex];
+		} else {
+			return null;
+		}
+		*/
+		return null;
 	}
 	
 }
