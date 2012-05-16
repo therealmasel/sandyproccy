@@ -16,7 +16,7 @@ public class GameMapAppletTest extends PApplet {
 		//colorMode(RGB, 200);
 		//buffer type is P3D cause we want to use it for object picking
 		buffer = createGraphics(300, 300, P3D);
-		this.gameMap = new GameMap(10, 10, 17, 17);
+		this.gameMap = new GameMap(20, 20, 17, 17);
 	}
 	
 	public void mouseClicked() {
@@ -26,8 +26,8 @@ public class GameMapAppletTest extends PApplet {
 		//buffer.lights();
 
 		
-		buffer.camera(10, 10, 220.0f, 
-		         70, 70, 0.0f, 
+		buffer.camera(30, 30, 220.0f, 
+		         120, 120, 0.0f, 
 		         1.0f, 0.0f, 0.0f);
 		buffer.background(-1);
 		buffer.noStroke();
@@ -55,8 +55,8 @@ public class GameMapAppletTest extends PApplet {
 	
 	public void draw() {
 		  g.lights();
-    	  g.camera(10, 10, 220.0f, 
-		         70, 70, 0.0f, 
+    	  g.camera(30, 30, 220.0f, 
+    			  120, 120, 0.0f, 
 		         1.0f, 0.0f, 0.0f);
     	  /*
     	  float cameraY = (float) (height/2.0);
