@@ -18,7 +18,7 @@ public class GameMapField {
 	}
 	
 	public void drawBuffer(PGraphics buffer) {
-		buffer.fill(fieldId);
+		buffer.fill(0,0,fieldId);
 		buffer.beginShape();
 		buffer.vertex(0, 0, 0);
 		buffer.vertex(0, fieldWidth, 0);
@@ -28,7 +28,7 @@ public class GameMapField {
 	}
 	
 	public void draw(PGraphics canvas) {
-		canvas.fill(fieldId);
+		canvas.fill(0,0,fieldId);
 		canvas.beginShape();
 		canvas.vertex(0, 0, 0);
 		canvas.vertex(0, fieldWidth, 0);

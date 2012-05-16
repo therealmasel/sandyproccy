@@ -19,7 +19,7 @@ public class GameMapAppletTest extends PApplet {
 		this.gameMap = new GameMap(20, 20, 17, 17);
 	}
 	
-	public void mouseClicked() {
+	public void mouseMoved() {
 		
 		
 		buffer.beginDraw();
@@ -37,17 +37,14 @@ public class GameMapAppletTest extends PApplet {
 			buffer.endDraw();
 		//this.g.endDraw();
 			int pick = buffer.get(mouseX, mouseY);
-			int red = (int) red(pick);
-			int green = (int) green(pick);
 			int blue = (int) blue(pick);
-			//int fieldWIndex = (pick / 10);
-			//int fieldHIndex = pick - fieldWIndex;
-			PApplet.println("red is" + red);
-			PApplet.println("green is" + green);
+			int fieldWIndex = (blue / 20);
+			int fieldHIndex = blue- fieldWIndex * 20 ;
+			
 			PApplet.println("blue is" + blue);
-			PApplet.println("pick is" + pick);
-			//PApplet.println("Windex" + fieldWIndex);
-			//PApplet.println("Hindex" + fieldHIndex);
+			//PApplet.println("pick is" + pick);
+			PApplet.println("Windex" + fieldWIndex);
+			PApplet.println("Hindex" + fieldHIndex);
 		
 		//println(id);
 		
