@@ -29,7 +29,7 @@ public class WordGameContextMenuItem extends GameContextMenuItem {
 
 	@Override
 	public void drawBuffer(PGraphics buffer) {
-		buffer.fill(30, 30, 10);
+		buffer.fill(itemId, itemId, itemId);
 		buffer.beginShape();
 		buffer.vertex(0, 0, 0);
 		buffer.vertex(0, width, 0);

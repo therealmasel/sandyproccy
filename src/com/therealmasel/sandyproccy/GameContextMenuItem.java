@@ -4,7 +4,7 @@ import processing.core.PGraphics;
 
 public abstract class GameContextMenuItem {
 
-	private int itemId;
+	protected int itemId;
 	
 	public GameContextMenuItem(int itemId) {
 		this.itemId = itemId;

@@ -49,6 +49,17 @@ public class GameMap {
 		
 	}
 	
+	public float calculateMapItemY(int itemIndex) {
+		int fieldWIndex = (itemIndex / fieldsByWidth);
+		int fieldHIndex = itemIndex - fieldWIndex * fieldsByWidth;
+		return fieldHIndex * fieldHeight;
+		
+	}
+
+	public float calculateMapItemX(int itemIndex) {
+		return (itemIndex / fieldsByWidth) * fieldWidth;
+	}
+	
 	public void drawMap(PGraphics canvas) {
 		
 		for (int i = 0; i < fieldsByWidth; i++) {

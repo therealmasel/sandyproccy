@@ -32,8 +32,9 @@ public abstract class GameContextMenu {
 			buffer.pushMatrix();
 			itemsSpacer(itemOrderId, buffer);
 			item.drawBuffer(buffer);
-			itemOrderId ++;
 			buffer.popMatrix();
+			itemOrderId ++;
+			
 		}
 	}
 
