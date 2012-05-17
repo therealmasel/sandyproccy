@@ -9,6 +9,8 @@ public class WordGameContextMenuItem extends GameContextMenuItem {
 	
 	public WordGameContextMenuItem(int itemId, int width, int height) {
 		super(itemId);
+		this.width = width;
+		this.height = height;
 	}
 	private WordGameContextMenuItem(int itemId) {
 		super(itemId);
@@ -16,7 +18,7 @@ public class WordGameContextMenuItem extends GameContextMenuItem {
 
 	@Override
 	public void draw(PGraphics canvas) {
-		canvas.fill(10, 10, 10);
+		canvas.fill(255);
 		canvas.beginShape();
 		canvas.vertex(0, 0, 0);
 		canvas.vertex(0, width, 0);
@@ -27,7 +29,7 @@ public class WordGameContextMenuItem extends GameContextMenuItem {
 
 	@Override
 	public void drawBuffer(PGraphics buffer) {
-		buffer.fill(10, 10, 10);
+		buffer.fill(30, 30, 10);
 		buffer.beginShape();
 		buffer.vertex(0, 0, 0);
 		buffer.vertex(0, width, 0);

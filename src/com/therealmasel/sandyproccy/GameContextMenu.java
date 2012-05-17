@@ -15,7 +15,8 @@ public abstract class GameContextMenu {
 	public abstract void itemsSpacer(int itemOrderId, PGraphics canvas); 
 	
 	public void draw(PGraphics canvas) {
-		int itemOrderId = 0;
+		
+		int itemOrderId = 1;
 		for (GameContextMenuItem item : menuItems) {
 			canvas.pushMatrix();
 			itemsSpacer(itemOrderId, canvas);
@@ -26,7 +27,7 @@ public abstract class GameContextMenu {
 	}
 	
 	public void drawBuffer(PGraphics buffer) {
-		int itemOrderId = 0;
+		int itemOrderId = 1;
 		for (GameContextMenuItem item : menuItems) {
 			buffer.pushMatrix();
 			itemsSpacer(itemOrderId, buffer);
