@@ -18,7 +18,7 @@ public class WordGameContextMenuItem extends GameContextMenuItem {
 
 	@Override
 	public void draw(PGraphics canvas) {
-		canvas.fill(255);
+		canvas.fill(itemId*10, itemId*30, 0);
 		canvas.beginShape();
 		canvas.vertex(0, 0, 0);
 		canvas.vertex(0, width, 0);

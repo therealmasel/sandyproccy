@@ -65,6 +65,7 @@ public class GameMapAppletTest extends PApplet {
 	}
 	
 	public void mouseMoved() {
+		buffer.beginDraw();
 		buffer.camera(
 				30, 30, 220.0f, 
 			    120, 120, 0.0f, 
@@ -75,39 +76,31 @@ public class GameMapAppletTest extends PApplet {
 			buffer.rotateX(PI/6);
 			
 		if (!showMenu) {
-			buffer.beginDraw();
+			
 			gameMap.drawMapBuffer(buffer);
 			buffer.endDraw();
 			//this.g.endDraw();
 			int pick = buffer.get(mouseX, mouseY);
 				//we`re getting the field id
 			int blue = (int) blue(pick);
-				//GameMapField field = gameMap.getField(blue);
-				//gameMap.clearFieldSelection();
+			
 			gameMap.setFieldSelected(blue);
 				
-				/*int fieldWIndex = (blue / 20);
-				int fieldHIndex = blue- fieldWIndex * 20 ;*/
-			activeFieldItem = blue;				
-			//PApplet.println("blue is" + blue);
-				//PApplet.println("pick is" + pick);
-				//PApplet.println("Windex" + fieldWIndex);
-				//PApplet.println("Hindex" + fieldHIndex);
 			
-			//println(id);			
+			activeFieldItem = blue;				
+			
 		} else {
-			buffer.beginDraw();
-			translate(
-				  gameMap.calculateMapItemX(fixedActiveFieldItem),
-				  gameMap.calculateMapItemY(fixedActiveFieldItem),
-				  10
-				  );
+			
+			buffer.translate(
+				 gameMap.calculateMapItemX(fixedActiveFieldItem),
+				 gameMap.calculateMapItemY(fixedActiveFieldItem),
+			     10
+			 );
 			 contextMenu.drawBuffer(buffer);
 		     buffer.endDraw();
 		     int pick = buffer.get(mouseX, mouseY);
 		     activeFieldItem = (int) blue(pick);
-		     //println("fixedActiveFieldItem: " + fixedActiveFieldItem);
-		     //println("menuItem: " + activeMenuItem);
+		   
 		}
 
 		
@@ -118,33 +111,13 @@ public class GameMapAppletTest extends PApplet {
     	  g.camera(30, 30, 220.0f, 
     			  120, 120, 0.0f, 
 		         1.0f, 0.0f, 0.0f);
-    	  /*
-    	  float cameraY = (float) (height/2.0);
-    	  float fov = mouseX/ (float)width * PI/2;
-    	  float cameraZ = cameraY / tan((float) (fov / 2.0));
-    	  float aspect = (float) width/(float)height;
-    	  if (mousePressed) {
-    	    aspect = (float) (aspect / 2.0);
-    	  }
-    	  perspective(fov, aspect, (float)(cameraZ/10.0), (float)(cameraZ*10.0));
-    	  */
+    	  
 		  g.background(-1);
 		  g.noStroke();
 		  g.rotateX(PI/6);
-		  //g.pushMatrix();
+		 
 		  gameMap.drawMap(this.g);
-		  //g.popMatrix();
 		  if (showMenu) {
-			  
-			  /*float x = modelX(130, 130, 0);
-			  float y = modelY(130, 130, 0);
-			  float z = modelZ(130, 130, 0);
-			  println(x);
-			  println(y);
-			  println(z);
-			  pushMatrix();
-			  translate(x, y, z);
-			  g.rotateX(PI/9);*/
 			  
 			  
 			  translate(
@@ -155,24 +128,10 @@ public class GameMapAppletTest extends PApplet {
 			  contextMenu.draw(g);
 			  //popMatrix();
 		  }
-		  /*
-		  float x = modelX(30, 30, 0);
-		  float y = modelY(30, 30, 0);
-		  float z = modelZ(30, 30, 0);
-		  println(x);
-		  println(y);
-		  println(z);
-		  */
-		  //pushMatrix();
-		  //translate(x, y, z);
-		  //rotateX(PI/6);
-		  //contextMenu.draw(g);
-		  //popMatrix();
-		  //g.fill(120, 120, 0);
+	
+		
 		  g.stroke(120, 120 ,0);
-		  //g.line(-100, 0, 0, 100, 0, 0);
-		  //g.line(0, -100, 0, 0, 100, 0);
-		  //g.line(0, 0, -100, 0, 0, 100);
+		 
 	}
 	
 	
